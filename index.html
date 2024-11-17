@@ -2,219 +2,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover why mini apps in Telegram are essential for enhancing user experience, providing seamless services, and expanding possibilities.">
-    <title>Why Telegram Mini Apps Matter</title>
+    <title>Magical Mini-App for Telegram</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #FFFFFF;
-            color: #000000;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(to bottom, #3e1a73, #ff6ec4);
+            color: #f0e6f6;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
         }
+
         header {
-            background-color: #F5F5F5;
-            padding: 20px;
+            background: linear-gradient(90deg, #ff6ec4, #3e1a73);
+            color: #fff;
+            padding: 30px;
             text-align: center;
-            position: relative;
-            animation: fadeInDown 1s ease-in-out;
-            border-bottom: 5px solid #007BFF;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
+
         header h1 {
-            font-weight: 700;
             margin: 0;
-            color: #007BFF;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            letter-spacing: 2px;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        .section {
-            margin-bottom: 40px;
-            padding: 20px;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #f5f5f5, #ffffff);
-            transition: transform 0.3s, box-shadow 0.3s;
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            text-align: center;
+            padding: 0 20px;
             position: relative;
-            overflow: hidden;
         }
-        .section::before {
+
+        .main-content::before {
             content: "";
             position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border-radius: 20px;
-            background: linear-gradient(to right, #007BFF, #0056b3);
-            z-index: -1;
-            filter: blur(10px);
-        }
-        .section:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        .section h2 {
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #333;
-            position: relative;
-        }
-        .section h2::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background-color: #007BFF;
-            bottom: -10px;
+            top: 0;
+            bottom: 0;
             left: 0;
-            border-radius: 5px;
+            right: 0;
+            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
+            opacity: 0.3;
+            z-index: -1;
         }
-        .section p {
-            font-weight: 300;
-            line-height: 1.6;
-            position: relative;
+
+        .main-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ffebcd;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
         }
-        .highlight {
-            color: #007BFF;
-            font-weight: 700;
-        }
-        .graphic-element {
-            position: absolute;
-            top: 20%;
-            right: -50px;
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle at center, #007BFF, #0056b3);
-            opacity: 0.1;
-            border-radius: 50%;
-            transform: rotate(15deg);
-            animation: spin 20s linear infinite;
-        }
-        .section .graphic-element-two {
-            top: auto;
-            bottom: 20%;
-            left: -60px;
-            background: radial-gradient(circle at center, #0056b3, #007BFF);
-            animation: spin-reverse 25s linear infinite;
-        }
-        footer {
-            background-color: #F5F5F5;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            animation: fadeInUp 1s ease-in-out;
-            border-top: 5px solid #007BFF;
-            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
-        }
-        footer p {
-            font-weight: 400;
-            margin: 0;
-        }
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        @keyframes spin-reverse {
-            from {
-                transform: rotate(360deg);
-            }
-            to {
-                transform: rotate(0deg);
-            }
-        }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: #007BFF;
+
+        .main-content p {
+            font-size: 1.5rem;
+            max-width: 700px;
             color: #fff;
-            text-decoration: none;
-            border-radius: 30px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, box-shadow 0.3s;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         }
-        .button:hover {
-            background-color: #0056b3;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+
+        .main-content button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6ec4, #3e1a73);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 30px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .main-content button:hover {
+            background: linear-gradient(45deg, #3e1a73, #ff6ec4);
+            transform: scale(1.1);
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+            background: #3e1a73;
+            color: #ffebcd;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Why Telegram Mini Apps Matter</h1>
+        <h1>Magical Mini-App for Telegram</h1>
     </header>
-    <div class="container">
-        <div class="section">
-            <h2><span class="highlight">What Are Mini Apps?</span></h2>
-            <p>Telegram mini apps are lightweight applications built to run inside the Telegram platform. They provide enhanced functionality, such as shopping, booking, or playing games, all without leaving the chat interface. Mini apps improve the overall experience by delivering services seamlessly to users.</p>
-            <a href="#" class="button">Learn More</a>
-            <div class="graphic-element"></div>
-            <div class="graphic-element graphic-element-two"></div>
+
+    <main>
+        <div class="main-content">
+            <h2>Immerse Yourself in the Magic of Integration</h2>
+            <p>Discover new possibilities for your Telegram channel or bot with our magical mini-app. Easily integrate new features and experience the magic in every message.</p>
+            <button onclick="window.location.href='https://t.me/your_miniapp_bot'">Connect the Magical App</button>
         </div>
-        <div class="section">
-            <h2><span class="highlight">Enhancing User Convenience</span></h2>
-            <p>Mini apps bring convenience by allowing users to perform a variety of tasks right within Telegram. Whether it's ordering food, booking tickets, or taking a quick survey, users can enjoy these services without having to switch between different apps. This seamless experience makes everyday tasks easier and faster.</p>
-            <a href="#" class="button">Discover More</a>
-            <div class="graphic-element"></div>
-            <div class="graphic-element graphic-element-two"></div>
-        </div>
-        <div class="section">
-            <h2><span class="highlight">Expanding Business Possibilities</span></h2>
-            <p>For businesses, Telegram mini apps provide an excellent opportunity to reach customers more efficiently. With mini apps, businesses can create customized solutions that cater to their audience directly within the app. It eliminates the need to develop full-scale applications while still providing essential services in a user-friendly manner.</p>
-            <a href="#" class="button">Business Solutions</a>
-            <div class="graphic-element"></div>
-            <div class="graphic-element graphic-element-two"></div>
-        </div>
-        <div class="section">
-            <h2><span class="highlight">Security and Efficiency</span></h2>
-            <p>Security is a significant advantage of using Telegram mini apps. Telegram's robust end-to-end encryption ensures that users' information remains safe. Additionally, these mini apps are designed to be efficient, keeping memory and data usage to a minimum while offering rich features.</p>
-            <a href="#" class="button">Learn About Security</a>
-            <div class="graphic-element"></div>
-            <div class="graphic-element graphic-element-two"></div>
-        </div>
-    </div>
+    </main>
+
     <footer>
-        <p>&copy; 2024 Telegram Mini Apps. All rights reserved.</p>
+        <p>&copy; 2024 Magical Mini-App. All rights reserved.</p>
     </footer>
 </body>
 </html>
