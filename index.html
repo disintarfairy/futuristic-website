@@ -1,100 +1,109 @@
-<!-- Flask backend (app.py) -->
-from flask import Flask, render_template, request, redirect, url_for
-
-app = Flask(__name__)
-
-# Главная страница
-@app.route('/')
-def home():
-    return render_template('index.html')
-
-# Страница курсов
-@app.route('/courses')
-def courses():
-    return render_template('courses.html')
-
-# Страница регистрации
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        # Обработка регистрации
-        username = request.form['username']
-        password = request.form['password']
-        # Сюда можно добавить логику для сохранения пользователя
-        return redirect(url_for('home'))
-    return render_template('register.html')
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
-<!-- HTML часть (templates/index.html) -->
-<!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini App for Business</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <title>Мини-приложения в Telegram для бизнеса</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1f1f1f;
+            color: #f5f5f5;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 50px 0;
+        }
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        header p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            color: #b0b0b0;
+        }
+        .section {
+            padding: 40px 0;
+            border-bottom: 1px solid #444;
+        }
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .section p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: #4caf50;
+            color: #fff;
+            font-size: 1.2rem;
+            border: none;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #43a047;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #2b2b2b;
+            color: #b0b0b0;
+        }
+        footer a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Добро пожаловать в Mini App для бизнеса!</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Главная</a></li>
-                <li><a href="/courses">Курсы</a></li>
-                <li><a href="/register">Регистрация</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Простота и удобство</h2>
-            <p>Мини-апп в Telegram — это лучший способ взаимодействия с вашей аудиторией. Начните прямо сейчас!</p>
-        </section>
-    </main>
-    <footer>
-        <p>© 2024 Mini App for Business. Все права защищены.</p>
-    </footer>
+    <div class="container">
+        <header>
+            <h1>Мини-приложения в Telegram для бизнеса</h1>
+            <p>Автоматизация и удобный доступ к вашему бизнесу прямо в Telegram</p>
+        </header>
+
+        <div class="section">
+            <h2>Что такое мини-апп?</h2>
+            <p>Мини-апп — это веб-приложение, которое работает внутри Telegram. Пользователи могут получить доступ к сервису прямо из мессенджера — без лишних установок, регистраций или сложностей. Это удобный способ автоматизировать взаимодействие с вашей аудиторией и создать комьюнити.</p>
+        </div>
+
+        <div class="section">
+            <h2>Почему это важно?</h2>
+            <p>Мини-аппы в Telegram представляют собой реальную альтернативу мобильным приложениям, с минимальными барьерами для пользователей: открыли чат и нажали на ссылку — никакой установки, ожидания или сложных процессов. Вы также можете мгновенно обновлять ваш мини-апп без необходимости одобрения со стороны магазинов приложений.</p>
+        </div>
+
+        <div class="section">
+            <h2>Кому это подойдёт?</h2>
+            <p>Мини-аппы идеально подходят для образовательных платформ, маркетплейсов, сервисов подписок, ресторанов, организаторов мероприятий, туристических агентств и многих других видов бизнеса. Если ваш бизнес использует регулярные коммуникации с клиентами через Telegram, мини-апп — это решение для вас.</p>
+        </div>
+
+        <div class="section">
+            <h2>Примеры использования</h2>
+            <p>От образовательных курсов до ресторанного бизнеса — мини-аппы позволяют взаимодействовать с клиентами быстро и эффективно. Например, организовать регистрацию на мероприятие, отслеживание заказов, доступ к контенту или бронирование столиков в ресторане.</p>
+            <a href="#" class="btn">Связаться с нами</a>
+        </div>
+
+        <footer>
+            <p>Создайте мини-приложение для вашего бизнеса с нами. Хотите узнать больше? Свяжитесь с нами в Telegram: <a href="https://t.me/margorine" target="_blank">@margorine</a></p>
+        </footer>
+    </div>
 </body>
 </html>
-
-<!-- CSS часть (static/styles.css) -->
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-header {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-}
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-main {
-    padding: 20px;
-    text-align: center;
-}
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
