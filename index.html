@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cinzel', serif;
             background: linear-gradient(to bottom, #1a002e, #7f00ff, #e100ff);
             color: #f0e6f6;
             margin: 0;
@@ -37,7 +37,7 @@
 
         header h1 {
             margin: 0;
-            font-family: 'Cinzel', serif;
+            font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             letter-spacing: 3px;
             text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
@@ -62,13 +62,13 @@
             left: 0;
             right: 0;
             background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
-            opacity: 0.2;
+            opacity: 0.3;
             z-index: -1;
             filter: blur(5px);
         }
 
         .main-content h2 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 20px;
             color: #ffe4e1;
             text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
@@ -81,7 +81,7 @@
         }
 
         .main-content p {
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             max-width: 700px;
             color: #fff;
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
@@ -150,6 +150,29 @@
             0%, 100% { opacity: 0.3; transform: translateY(0px); }
             50% { opacity: 1; transform: translateY(-20px); }
         }
+
+        .additional-images {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            opacity: 0.8;
+        }
+
+        .additional-images img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .additional-images img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+        }
     </style>
 </head>
 <body>
@@ -162,6 +185,11 @@
             <h2>Immerse Yourself in the Magic of Integration</h2>
             <p>Discover new possibilities for your Telegram channel or bot with our magical mini-app. Easily integrate new features and experience the magic in every message.</p>
             <button onclick="window.location.href='https://t.me/your_miniapp_bot'">Connect the Magical App</button>
+            <div class="additional-images">
+                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Magic Icon 1">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Magic Icon 2">
+                <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Magic Icon 3">
+            </div>
         </div>
     </main>
 
