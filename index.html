@@ -2,233 +2,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magical Telegram Apps</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Telegram Apps - The Magical Gateway</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background: radial-gradient(circle, #2e004f, #1a002e);
-            color: #f5f5f5;
             margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a2e;
+            color: #e5e5e5;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;700&display=swap');
+
+        .starry-background {
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
             padding: 0;
-            overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        header {
-            background: linear-gradient(90deg, #6a00ff, #c400ff);
-            color: #fff;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        header h1 {
-            margin: 0;
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            letter-spacing: 2px;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
-        }
-
-        nav {
+        .nav-bar {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
         }
 
-        nav a {
-            color: #fff;
-            font-size: 1.2rem;
+        .nav-bar .logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: #f5f5f5;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
             text-decoration: none;
+            color: #f5f5f5;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: #ffd700;
+        .nav-links a:hover {
+            color: #c7c7e2;
         }
 
-        .hero {
+        .header-section {
             text-align: center;
             padding: 100px 20px;
-            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center;
-            background-size: cover;
-            position: relative;
-            color: #fff;
         }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: -1;
-        }
-
-        .hero h2 {
+        .header-content h1 {
+            font-family: 'Great Vibes', cursive;
             font-size: 3.5rem;
             margin-bottom: 20px;
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            max-width: 700px;
-            margin: 0 auto;
+        .header-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            padding: 60px 40px;
-            background: linear-gradient(to bottom, #1a002e, #6a00ff);
+        .cta-button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            background-color: #c70039;
+            color: #ffffff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .feature {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4);
+        .cta-button:hover {
+            background-color: #ff5733;
+        }
+
+        .features-section, .apps-section, .about-section {
+            padding: 50px 20px;
             text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .features-container, .apps-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .feature-card, .app-item {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            width: 250px;
             transition: transform 0.3s;
         }
 
-        .feature:hover {
+        .feature-card:hover, .app-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.6);
         }
 
-        .feature h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #ffd700;
-        }
-
-        .feature p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-
-        .cta {
-            text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(45deg, #ff6ec4, #c400ff);
-        }
-
-        .cta h2 {
+        .feature-icon, .app-icon {
             font-size: 3rem;
-            margin-bottom: 20px;
-            color: #fff;
+            margin-bottom: 15px;
         }
 
-        .cta button {
-            padding: 15px 40px;
-            background: #ffd700;
-            color: #1a002e;
-            font-size: 1.5rem;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: background 0.3s;
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        .cta button:hover {
-            background: #ffeb3b;
-        }
-
-        footer {
-            background: #1a002e;
-            color: #fff;
+        .footer {
             text-align: center;
-            padding: 40px 20px;
-            box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 1.2rem;
-        }
-
-        .floating-stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .star {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: #ffd700;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #ffd700;
-            animation: twinkle 10s infinite ease-in-out;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: translateY(0px); }
-            50% { opacity: 1; transform: translateY(-15px); }
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Magical Telegram Apps</h1>
-        <nav>
-            <a href="#features">Features</a>
-            <a href="#cta">Get Started</a>
-            <a href="#contact">Contact</a>
+    <div class="starry-background">
+        <!-- Navigation Bar -->
+        <nav class="nav-bar">
+            <div class="logo">✨ Telegram Magic ✨</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#apps">Apps</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
         </nav>
-    </header>
 
-    <section class="hero">
-        <h2>Transform Your Telegram Experience</h2>
-        <p>Bring a world of magic to your Telegram channels and bots with our enchanted mini-apps. Seamlessly integrate unique functionalities and captivate your audience like never before.</p>
-    </section>
+        <!-- Header Section -->
+        <header id="home" class="header-section">
+            <div class="header-content">
+                <h1>Welcome to the Magical World of Telegram Apps</h1>
+                <p>Discover the enchanting possibilities Telegram has to offer. Explore new features, powerful tools, and hidden wonders with a sprinkle of magic.</p>
+                <button class="cta-button">Get Started</button>
+            </div>
+        </header>
 
-    <section id="features" class="features">
-        <div class="feature">
-            <h3>Effortless Integration</h3>
-            <p>Add new features in just a few clicks, with no coding required. Our intuitive platform makes it easy for anyone to enhance their Telegram experience.</p>
-        </div>
-        <div class="feature">
-            <h3>Boost Engagement</h3>
-            <p>Create magical polls, automated responses, and interactive experiences that keep your audience engaged and entertained.</p>
-        </div>
-        <div class="feature">
-            <h3>Customize Everything</h3>
-            <p>Tailor your bot or channel to fit the unique needs of your community, whether it's for business or for fun.</p>
-        </div>
-        <div class="feature">
-            <h3>Magical Effects</h3>
-            <p>Enchanted visuals and dynamic interactions create a spellbinding experience for your users.</p>
-        </div>
-    </section>
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <h2 class="section-title">Features that Sparkle</h2>
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="feature-icon">🪄</div>
+                    <h3>Custom Bots</h3>
+                    <p>Create custom experiences and automation through Telegram Bots. Easy, enchanting, and efficient.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔮</div>
+                    <h3>Magic Widgets</h3>
+                    <p>Add rich functionality to your chats with our collection of beautiful widgets. Make your conversations shine!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌌</div>
+                    <h3>Endless Integration</h3>
+                    <p>Connect with thousands of apps and services, all linked through our gateways of magic.</p>
+                </div>
+            </div>
+        </section>
 
-    <section id="cta" class="cta">
-        <h2>Ready to Create Magic?</h2>
-        <button onclick="window.location.href='https://t.me/your_miniapp_bot'">Get Started Now</button>
-    </section>
+        <!-- Apps Section -->
+        <section id="apps" class="apps-section">
+            <h2 class="section-title">Explore Our Enchanted Apps</h2>
+            <div class="apps-gallery">
+                <div class="app-item">
+                    <div class="app-icon">✨</div>
+                    <h4>Stellar Chat</h4>
+                    <p>An app for organizing group events effortlessly - whether it's an enchanted tea party or a grand feast.</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon">🌀</div>
+                    <h4>Whirlwind Polls</h4>
+                    <p>Make decisions easily with fun and dynamic polls. Your group's opinions have never been more magical!</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon">🌠</div>
+                    <h4>Starry Reminders</h4>
+                    <p>Never forget a task with reminders delivered by our friendly celestial helpers.</p>
+                </div>
+            </div>
+        </section>
 
-    <footer id="contact">
-        <p>&copy; 2024 Magical Telegram Apps. All rights reserved.</p>
-    </footer>
+        <!-- About Us Section -->
+        <section id="about" class="about-section">
+            <h2 class="section-title">Who We Are</h2>
+            <p>We are a group of dreamers, magicians, and tech enthusiasts bringing the magic of Telegram apps to life. Our mission is to infuse joy, convenience, and creativity into the everyday conversations of people around the world.</p>
+        </section>
 
-    <div class="floating-stars">
-        <div class="star" style="top: 10%; left: 15%; animation-duration: 8s;"></div>
-        <div class="star" style="top: 30%; left: 70%; animation-duration: 10s;"></div>
-        <div class="star" style="top: 50%; left: 40%; animation-duration: 6s;"></div>
-        <div class="star" style="top: 80%; left: 20%; animation-duration: 12s;"></div>
-        <div class="star" style="top: 90%; left: 60%; animation-duration: 14s;"></div>
+        <!-- Footer Section -->
+        <footer class="footer">
+            <p>&copy; 2024 Telegram Magic. Made with a little bit of magic and lots of love.</p>
+        </footer>
     </div>
 </body>
 </html>
