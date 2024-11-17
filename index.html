@@ -6,12 +6,14 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="description" content="Rebooot - платформа для эмоционального и психологического развития. Перезагрузите свою жизнь и найдите путь к лучшему себе!">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="navbar">
             <div class="container">
-                <a href="#" class="logo">Rebooot</a>
+                <a href="#" class="logo"><img src="logo.png" alt="Rebooot Logo"></a>
                 <ul class="nav-menu">
                     <li><a href="#about">О нас</a></li>
                     <li><a href="#services">Услуги</a></li>
@@ -27,18 +29,25 @@
         </nav>
     </header>
 
-    <section id="hero">
+    <section id="hero" class="hero" style="background-image: url('hero-background.jpg');">
         <div class="hero-container">
             <h1>Перезагрузите свою жизнь</h1>
             <p>Найдите путь к лучшему себе через осознанность, обучение и поддержку</p>
-            <a href="#services" class="btn">Узнать больше</a>
+            <a href="#services" class="btn btn-primary">Узнать больше</a>
         </div>
     </section>
 
     <section id="about" class="about">
         <div class="container">
             <h2>О нас</h2>
-            <p>Rebooot - это платформа, которая помогает людям найти эмоциональную и психологическую поддержку. Мы предоставляем уникальные методы и практики для развития самосознания, улучшения психоэмоционального состояния и достижения внутренней гармонии.</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Rebooot - это платформа, которая помогает людям найти эмоциональную и психологическую поддержку. Мы предоставляем уникальные методы и практики для развития самосознания, улучшения психоэмоционального состояния и достижения внутренней гармонии.</p>
+                </div>
+                <div class="about-image">
+                    <img src="about-image.jpg" alt="О нас">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -47,14 +56,17 @@
             <h2>Наши услуги</h2>
             <div class="services-grid">
                 <div class="service-item">
+                    <img src="service1.jpg" alt="Личная консультация">
                     <h3>Личная консультация</h3>
                     <p>Индивидуальные сессии с профессиональными коучами для поддержки вашего эмоционального роста.</p>
                 </div>
                 <div class="service-item">
+                    <img src="service2.jpg" alt="Групповые встречи">
                     <h3>Групповые встречи</h3>
                     <p>Присоединяйтесь к нашим регулярным группам поддержки, где вы сможете поделиться своим опытом и узнать новые практики.</p>
                 </div>
                 <div class="service-item">
+                    <img src="service3.jpg" alt="Онлайн курсы">
                     <h3>Онлайн курсы</h3>
                     <p>Учитесь управлять своими эмоциями и улучшать качество жизни с помощью наших специально разработанных курсов.</p>
                 </div>
@@ -65,13 +77,15 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <h2>Отзывы наших клиентов</h2>
-            <div class="testimonial-item">
-                <p>"Rebooot помог мне найти баланс и улучшить мои отношения с окружающими. Рекомендую всем, кто хочет глубже понять себя!"</p>
-                <h4>- Анна К.</h4>
-            </div>
-            <div class="testimonial-item">
-                <p>"Групповые встречи были очень вдохновляющими и полезными. Я чувствую, что двигаюсь в правильном направлении благодаря этой поддержке."</p>
-                <h4>- Илья М.</h4>
+            <div class="testimonials-grid">
+                <div class="testimonial-item">
+                    <p>"Rebooot помог мне найти баланс и улучшить мои отношения с окружающими. Рекомендую всем, кто хочет глубже понять себя!"</p>
+                    <h4>- Анна К.</h4>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Групповые встречи были очень вдохновляющими и полезными. Я чувствую, что двигаюсь в правильном направлении благодаря этой поддержке."</p>
+                    <h4>- Илья М.</h4>
+                </div>
             </div>
         </div>
     </section>
@@ -80,17 +94,28 @@
         <div class="container">
             <h2>Контакты</h2>
             <p>Свяжитесь с нами, чтобы узнать больше о наших услугах или записаться на консультацию.</p>
-            <form action="#" method="post">
-                <input type="text" name="name" placeholder="Ваше имя" required>
-                <input type="email" name="email" placeholder="Ваш email" required>
-                <textarea name="message" placeholder="Ваше сообщение" required></textarea>
-                <button type="submit" class="btn">Отправить</button>
+            <form action="#" method="post" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Ваш email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Ваше сообщение" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить</button>
             </form>
         </div>
     </section>
 
     <footer>
         <div class="container">
+            <ul class="social-links">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            </ul>
             <p>&copy; 2024 Rebooot. Все права защищены.</p>
         </div>
     </footer>
