@@ -8,26 +8,39 @@
     <style>
         body {
             font-family: 'Playfair Display', serif;
-            background: linear-gradient(to bottom, #3e1a73, #ff6ec4);
+            background: linear-gradient(to bottom, #1a002e, #7f00ff, #e100ff);
             color: #f0e6f6;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            animation: backgroundFade 10s infinite alternate;
+        }
+
+        @keyframes backgroundFade {
+            0% { background: linear-gradient(to bottom, #1a002e, #7f00ff, #e100ff); }
+            100% { background: linear-gradient(to bottom, #3e1a73, #ff6ec4, #ffa69e); }
         }
 
         header {
-            background: linear-gradient(90deg, #ff6ec4, #3e1a73);
+            background: linear-gradient(90deg, #ff6ec4, #7f00ff);
             color: #fff;
             padding: 30px;
             text-align: center;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+            animation: headerGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes headerGlow {
+            0% { box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); }
+            100% { box-shadow: 0px 8px 25px rgba(255, 110, 196, 0.7); }
         }
 
         header h1 {
             margin: 0;
             font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            letter-spacing: 2px;
+            font-size: 3.5rem;
+            letter-spacing: 3px;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
         }
 
         .main-content {
@@ -49,54 +62,93 @@
             left: 0;
             right: 0;
             background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
-            opacity: 0.3;
+            opacity: 0.2;
             z-index: -1;
+            filter: blur(5px);
         }
 
         .main-content h2 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
-            color: #ffebcd;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            color: #ffe4e1;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+            animation: textGlow 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); }
+            100% { text-shadow: 5px 5px 15px rgba(255, 228, 225, 0.9); }
         }
 
         .main-content p {
-            font-size: 1.5rem;
+            font-size: 1.7rem;
             max-width: 700px;
             color: #fff;
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
         }
 
         .main-content button {
             margin-top: 30px;
             padding: 15px 30px;
-            background: linear-gradient(45deg, #ff6ec4, #3e1a73);
+            background: linear-gradient(45deg, #ff6ec4, #7f00ff);
             color: white;
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            border-radius: 30px;
-            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 50px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s, box-shadow 0.4s;
+            animation: buttonPulse 2s infinite alternate;
+        }
+
+        @keyframes buttonPulse {
+            0% { transform: scale(1); box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4); }
+            100% { transform: scale(1.1); box-shadow: 0px 12px 30px rgba(127, 0, 255, 0.7); }
         }
 
         .main-content button:hover {
-            background: linear-gradient(45deg, #3e1a73, #ff6ec4);
-            transform: scale(1.1);
-            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(45deg, #e100ff, #ff6ec4);
+            transform: scale(1.15);
+            box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.5);
         }
 
         footer {
-            background: #3e1a73;
+            background: linear-gradient(90deg, #3e1a73, #1a002e);
             color: #ffebcd;
             text-align: center;
-            padding: 15px;
+            padding: 20px;
             box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
         }
 
         footer p {
             margin: 0;
-            font-size: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .floating-stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff;
+            animation: twinkle 10s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: translateY(0px); }
+            50% { opacity: 1; transform: translateY(-20px); }
         }
     </style>
 </head>
@@ -116,5 +168,13 @@
     <footer>
         <p>&copy; 2024 Magical Mini-App. All rights reserved.</p>
     </footer>
+
+    <div class="floating-stars">
+        <div class="star" style="top: 10%; left: 20%; animation-duration: 7s;"></div>
+        <div class="star" style="top: 25%; left: 80%; animation-duration: 12s;"></div>
+        <div class="star" style="top: 50%; left: 40%; animation-duration: 9s;"></div>
+        <div class="star" style="top: 70%; left: 60%; animation-duration: 15s;"></div>
+        <div class="star" style="top: 85%; left: 10%; animation-duration: 11s;"></div>
+    </div>
 </body>
 </html>
