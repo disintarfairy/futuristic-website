@@ -21,10 +21,14 @@
             text-align: center;
             position: relative;
             animation: fadeInDown 1s ease-in-out;
+            border-bottom: 5px solid #007BFF;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         header h1 {
             font-weight: 700;
             margin: 0;
+            color: #007BFF;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
         }
         .container {
             max-width: 1200px;
@@ -34,20 +38,72 @@
         }
         .section {
             margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #f5f5f5, #ffffff);
             transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .section::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 20px;
+            background: linear-gradient(to right, #007BFF, #0056b3);
+            z-index: -1;
+            filter: blur(10px);
         }
         .section:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         .section h2 {
             font-weight: 700;
             margin-bottom: 10px;
             color: #333;
+            position: relative;
+        }
+        .section h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: #007BFF;
+            bottom: -10px;
+            left: 0;
+            border-radius: 5px;
         }
         .section p {
             font-weight: 300;
             line-height: 1.6;
+            position: relative;
+        }
+        .highlight {
+            color: #007BFF;
+            font-weight: 700;
+        }
+        .graphic-element {
+            position: absolute;
+            top: 20%;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle at center, #007BFF, #0056b3);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: rotate(15deg);
+            animation: spin 20s linear infinite;
+        }
+        .section .graphic-element-two {
+            top: auto;
+            bottom: 20%;
+            left: -60px;
+            background: radial-gradient(circle at center, #0056b3, #007BFF);
+            animation: spin-reverse 25s linear infinite;
         }
         footer {
             background-color: #F5F5F5;
@@ -55,6 +111,8 @@
             text-align: center;
             position: relative;
             animation: fadeInUp 1s ease-in-out;
+            border-top: 5px solid #007BFF;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
         }
         footer p {
             font-weight: 400;
@@ -88,6 +146,22 @@
                 transform: translateY(0);
             }
         }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes spin-reverse {
+            from {
+                transform: rotate(360deg);
+            }
+            to {
+                transform: rotate(0deg);
+            }
+        }
         .button {
             display: inline-block;
             padding: 10px 20px;
@@ -95,11 +169,13 @@
             background-color: #007BFF;
             color: #fff;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            border-radius: 30px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
         .button:hover {
             background-color: #0056b3;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -109,24 +185,32 @@
     </header>
     <div class="container">
         <div class="section">
-            <h2>What Are Mini Apps?</h2>
+            <h2><span class="highlight">What Are Mini Apps?</span></h2>
             <p>Telegram mini apps are lightweight applications built to run inside the Telegram platform. They provide enhanced functionality, such as shopping, booking, or playing games, all without leaving the chat interface. Mini apps improve the overall experience by delivering services seamlessly to users.</p>
             <a href="#" class="button">Learn More</a>
+            <div class="graphic-element"></div>
+            <div class="graphic-element graphic-element-two"></div>
         </div>
         <div class="section">
-            <h2>Enhancing User Convenience</h2>
+            <h2><span class="highlight">Enhancing User Convenience</span></h2>
             <p>Mini apps bring convenience by allowing users to perform a variety of tasks right within Telegram. Whether it's ordering food, booking tickets, or taking a quick survey, users can enjoy these services without having to switch between different apps. This seamless experience makes everyday tasks easier and faster.</p>
             <a href="#" class="button">Discover More</a>
+            <div class="graphic-element"></div>
+            <div class="graphic-element graphic-element-two"></div>
         </div>
         <div class="section">
-            <h2>Expanding Business Possibilities</h2>
+            <h2><span class="highlight">Expanding Business Possibilities</span></h2>
             <p>For businesses, Telegram mini apps provide an excellent opportunity to reach customers more efficiently. With mini apps, businesses can create customized solutions that cater to their audience directly within the app. It eliminates the need to develop full-scale applications while still providing essential services in a user-friendly manner.</p>
             <a href="#" class="button">Business Solutions</a>
+            <div class="graphic-element"></div>
+            <div class="graphic-element graphic-element-two"></div>
         </div>
         <div class="section">
-            <h2>Security and Efficiency</h2>
+            <h2><span class="highlight">Security and Efficiency</span></h2>
             <p>Security is a significant advantage of using Telegram mini apps. Telegram's robust end-to-end encryption ensures that users' information remains safe. Additionally, these mini apps are designed to be efficient, keeping memory and data usage to a minimum while offering rich features.</p>
             <a href="#" class="button">Learn About Security</a>
+            <div class="graphic-element"></div>
+            <div class="graphic-element graphic-element-two"></div>
         </div>
     </div>
     <footer>
