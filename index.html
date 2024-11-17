@@ -1,164 +1,100 @@
-<html lang="ru">
+<!-- Flask backend (app.py) -->
+from flask import Flask, render_template, request, redirect, url_for
+
+app = Flask(__name__)
+
+# Главная страница
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+# Страница курсов
+@app.route('/courses')
+def courses():
+    return render_template('courses.html')
+
+# Страница регистрации
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        # Обработка регистрации
+        username = request.form['username']
+        password = request.form['password']
+        # Сюда можно добавить логику для сохранения пользователя
+        return redirect(url_for('home'))
+    return render_template('register.html')
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+<!-- HTML часть (templates/index.html) -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мини-приложения для бизнеса в Telegram</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background: #0a0a0a;
-            color: #f0f0f0;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-        header {
-            text-align: center;
-            padding: 200px 20px;
-            background: linear-gradient(135deg, #141E30, #243B55);
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-        header::before {
-            content: "";
-            position: absolute;
-            top: -20%;
-            left: -20%;
-            width: 140%;
-            height: 140%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
-            animation: spin 30s linear infinite;
-        }
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        header h1 {
-            font-size: 3.5em;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            z-index: 1;
-            position: relative;
-        }
-        header p {
-            font-size: 1.5em;
-            color: #bbb;
-            margin-top: 20px;
-            z-index: 1;
-            position: relative;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .section {
-            margin-bottom: 80px;
-            padding: 60px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-        }
-        .section h2 {
-            font-size: 2.5em;
-            color: #f39c12;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .section p {
-            font-size: 1.2em;
-            line-height: 1.8;
-            text-align: center;
-            color: #ccc;
-        }
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: space-around;
-        }
-        .feature {
-            flex: 1 1 calc(30% - 20px);
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 20px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            backdrop-filter: blur(8px);
-        }
-        .feature:hover {
-            transform: translateY(-20px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-        }
-        .feature h3 {
-            font-size: 1.8em;
-            color: #e74c3c;
-            margin-bottom: 15px;
-        }
-        .feature p {
-            font-size: 1em;
-            color: #ddd;
-        }
-        footer {
-            text-align: center;
-            padding: 100px 20px;
-            background: #141E30;
-            color: #bbb;
-            position: relative;
-        }
-        footer a {
-            color: #f39c12;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-        footer a:hover {
-            color: #e74c3c;
-        }
-    </style>
+    <title>Mini App for Business</title>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
     <header>
-        <h1>Мини-приложения в Telegram для Вашего бизнеса</h1>
-        <p>Лучший способ автоматизации бизнеса и создания комьюнити в Telegram</p>
+        <h1>Добро пожаловать в Mini App для бизнеса!</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/courses">Курсы</a></li>
+                <li><a href="/register">Регистрация</a></li>
+            </ul>
+        </nav>
     </header>
-    <div class="container">
-        <section class="section">
-            <h2>Почему мини-апп лучше обычного приложения?</h2>
-            <div class="features">
-                <div class="feature">
-                    <h3>Быстрый запуск</h3>
-                    <p>Мини-аппы запускаются намного быстрее, чем полноценные приложения, позволяя тестировать идеи с минимальными затратами времени и средств.</p>
-                </div>
-                <div class="feature">
-                    <h3>Простота обновлений</h3>
-                    <p>Обновления применяются мгновенно, без необходимости одобрения App Store или Google Play, что экономит время и ресурсы.</p>
-                </div>
-                <div class="feature">
-                    <h3>Меньше затрат</h3>
-                    <p>Разработка мини-аппа в разы дешевле обычного приложения, начиная от $7000, и без комиссии AppStore или Google Play.</p>
-                </div>
-            </div>
+    <main>
+        <section>
+            <h2>Простота и удобство</h2>
+            <p>Мини-апп в Telegram — это лучший способ взаимодействия с вашей аудиторией. Начните прямо сейчас!</p>
         </section>
-        <section class="section">
-            <h2>Примеры использования</h2>
-            <p>Мини-аппы идеально подходят для образовательных платформ, маркетплейсов, сервисов подписок и многих других бизнесов, которые нуждаются в простом и удобном способе взаимодействия с аудиторией.</p>
-        </section>
-        <section class="section">
-            <h2>Кейс образовательной платформы ELEVEN</h2>
-            <p>Мы создали мини-апп для ELEVEN, который объединил всё необходимое для лёгкого и доступного обучения. Благодаря встроенной системе трекинга прогресса и интеграции с чатом комьюнити, пользователи могут оставаться вовлеченными и мотивированными.</p>
-        </section>
-    </div>
+    </main>
     <footer>
-        <p>Свяжитесь с нами в Telegram - <a href="https://t.me/margorine">@margorine</a></p>
+        <p>© 2024 Mini App for Business. Все права защищены.</p>
     </footer>
 </body>
 </html>
+
+<!-- CSS часть (static/styles.css) -->
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+main {
+    padding: 20px;
+    text-align: center;
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
